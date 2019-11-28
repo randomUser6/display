@@ -1,3 +1,137 @@
+:root {
+    --border-radius: 25px;
+    --bg-clr-1: #fff;
+    --bg-clr-2: #DBE9EE;
+    --gallery-bg-clr-2: #FEF6C9;
+}
+
 body {
-    background-color: #00aecb;
+    background-color: #6D8A96;
+    margin: 20px 0 0 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.jalla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dill {
+    width: 100%;
+    position: relative;
+    min-height: 50px;
+    margin: 20px auto 0 auto;
+}
+
+
+.dill > div {
+    position: relative;
+    
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: radial-gradient(var(--bg-clr-1), var(--bg-clr-2));
+    transition: max-height 500ms cubic-bezier(0, 1.05, 0, 1);
+    
+}
+
+.dill > div > div {
+    padding: 0;
+}
+
+.dill > input {
+    position: absolute;
+    left: -9999px;
+}
+
+.dill > label {
+    position: absolute;
+    background-color: var(--bg-clr-2);
+    width: 500px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font: 1.4em sans-serif;
+    padding: 0.6em 0.6em 0.6em 1.2em;
+    border-radius: var(--border-radius);
+    transition: box-shadow 250ms;
+    transition-delay: 250ms;
+}
+
+@media screen and (max-width: 479px) {
+    .dill > label {
+        width: 450px;
+        height: 50px;
+    }
+    
+}
+
+.dill > input:checked ~ div {
+    max-height: 3000px;
+    transition: max-height 500ms cubic-bezier(1.000, 0.080, 1.000, 0.335);
+    
+}
+
+.dill > input:checked ~ label {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0 0 0 auto;
+    background-color: transparent;
+    background-image: url(close.svg);
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: 0 0;
+    box-shadow: 0px 0px 10px #888888;
+    transform: none;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.dill > input:checked ~ label span {
+    display: none;
+}
+
+.gallery {
+    width: 500px;
+    background-color: var(--gallery-bg-clr-2);
+}
+
+.image-container {
+    width: 200px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 1px 2px 12px 0 rgb(205, 209, 214);
+}
+
+.image-container > div {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.image-container > img {
+    width: 100%;
+}
+
+label.taj {
+    background-image: url("gfx_taj.png");
+    background-position: 360px -10px;
+    background-repeat: no-repeat;
+    background-size: 150px;
+}
+
+label.pus {
+    background-image: url("gfx_pus.png");
+    background-position: 360px -30px;
+    background-repeat: no-repeat;
+    background-size: 200px;
 }
