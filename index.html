@@ -4,103 +4,95 @@
 <head>
     <meta charset="utf-8">
     <title>title</title>
-    <link rel="stylesheet" href="/display/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const params = new URLSearchParams(document.location.search);
+            const p = params.get("p");
+            const d = document.querySelectorAll("#" + p + " input").forEach(function (checkbox) { checkbox.checked = true; });
+        });
+    </script>
 
-    <div class="jalla">
-        <div class="dill">
+    <div class="main-container">
+        <div class="item-container" id="pusle">
             <input id="cb1" type="checkbox">
             <label for="cb1" class="taj"><span>OSX 3D puslespill</span></label>
             <div>
-                <div>
+                <div class="collapsible-container">
+                    <h2>OSX 3D puslespill</h2>
                     <div class="gallery">
-                        <div class="image-container">
-                            <img src="gfx_pusle1.png">
-                            <div>bilde 1</div>
+                        <div class="image-container"><img src="img_3dp_1.jpg">
+                            <p>test</p>
                         </div>
+                        <div class="image-container"><img src="img_3dp_2.jpg"></div>
+                        <div class="image-container"><img src="img_3dp_3.jpg"></div>
+                        <div class="image-container"><img src="img_3dp_4.jpg"></div>
+                    </div>
+                    <div class="text-container">
+                        <p>Et spill jeg laget fra bunnen av uten noen eksisterende spillmotor. Mye modellering samt
+                            matematikk involvert. Bitene legges tilfeldig ut på brettet. Spilleren skal deretter finne
+                            bitene som passer sammen.</p>
+                        <p>Ved riktig valg spilles en animasjon som fører bitene sammen.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="dill">
+        <div class="item-container" id="bokstav">
             <input id="cb2" type="checkbox">
             <label for="cb2" class="pus"><span>iPad bokstavspill</span></label>
             <div>
-                <div>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
+                <div class="collapsible-container">
+                    <h2>iPad bokstavspill</h2>
+                    <div class="gallery gallery-single">
+                        <div class="image-container"><img src="img_pus_1.jpg">
+                        </div>
+                        <div class="image-container"><img src="img_pus_2.jpg">
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <p>Tekst.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dill">
-            <input id="cb3" type="checkbox">
-            <label for="cb3" class="pus"><span>iPad bokstavspill</span></label>
-            <div>
-                <div>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                </div>
-            </div>
-        </div>
-        <div class="dill">
-            <input id="cb4" type="checkbox">
-            <label for="cb4" class="pus"><span>iPad bokstavspill</span></label>
-            <div>
-                <div>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                </div>
-            </div>
-        </div>
-        <div class="dill">
+        <div class="item-container" id="ma">
             <input id="cb5" type="checkbox">
-            <label for="cb5" class="pus"><span>iPad bokstavspill</span></label>
+            <label for="cb5" class="mas"><span>Webside for MA Sandnes</span></label>
             <div>
-                <div>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
+                <div class="collapsible-container">
+                    <h2>Webside for MA Sandnes</h2>
+                    <div class="gallery gallery-single">
+                        <div class="image-container"><img src="img_mas_1.png">
+                        </div>
+                        <div class="image-container"><img src="img_mas_2.png">
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <p>Jeg fikk muligheten til å lage en side for Motorførernes Avholdsforbund, avdeling Sandnes.
+                            Ikke den første jeg laget, men den tidligste jeg kunne finne.</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dill">
+        <div class="item-container" id="aksiom">
             <input id="cb6" type="checkbox">
-            <label for="cb6" class="pus"><span>iPad bokstavspill</span></label>
+            <label for="cb6" class="aks"><span>Webside Aksiom</span></label>
             <div>
-                <div>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
-                    <p>content</p>
+                <div class="collapsible-container">
+                    <h2>Webside Aksiom</h2>
+                    <div class="gallery gallery-single">
+                        <div class="image-container"><img src="img_aks_1.png">
+                        </div>
+                        <div class="image-container"><img src="img_aks_2.png">
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <p>Laget denne siden etter den for MA Sandnes med tanke på å jobbe med webdesign, men det ble
+                            det ikke noe av.</p>
+                    </div>
                 </div>
             </div>
         </div>

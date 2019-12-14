@@ -2,7 +2,11 @@
     --border-radius: 25px;
     --bg-clr-1: #fff;
     --bg-clr-2: #DBE9EE;
-    --gallery-bg-clr-2: #FEF6C9;
+    --gallery-bg-clr-2: #4f4f4f;
+    --page-bg-clr: #f7f7f7;
+
+    --container-width: 800px;
+    --gallery-width: 300px;
 }
 
 body {
@@ -15,42 +19,38 @@ body {
     box-sizing: border-box;
 }
 
-.jalla {
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.dill {
+.item-container {
     width: 100%;
+    max-width: var(--container-width);
     position: relative;
     min-height: 50px;
     margin: 20px auto 0 auto;
 }
 
-
-.dill > div {
+.item-container > div {
     position: relative;
-    
+    background-color: var(--page-bg-clr);
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    background: radial-gradient(var(--bg-clr-1), var(--bg-clr-2));
+    background: #fff;
     transition: max-height 500ms cubic-bezier(0, 1.05, 0, 1);
-    
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
 }
 
-.dill > div > div {
-    padding: 0;
-}
-
-.dill > input {
+.item-container > input {
     position: absolute;
     left: -9999px;
 }
 
-.dill > label {
+.item-container > label {
     position: absolute;
     background-color: var(--bg-clr-2);
     width: 500px;
@@ -61,66 +61,128 @@ body {
     font: 1.4em sans-serif;
     padding: 0.6em 0.6em 0.6em 1.2em;
     border-radius: var(--border-radius);
-    transition: box-shadow 250ms;
-    transition-delay: 250ms;
+    transition: box-shadow 400ms;
+    transition-delay: 100ms;
 }
 
-@media screen and (max-width: 479px) {
-    .dill > label {
-        width: 450px;
-        height: 50px;
-    }
-    
-}
-
-.dill > input:checked ~ div {
+.item-container > input:checked ~ div {
     max-height: 3000px;
     transition: max-height 500ms cubic-bezier(1.000, 0.080, 1.000, 0.335);
-    
 }
 
-.dill > input:checked ~ label {
+.item-container > input:checked ~ label {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     padding: 0;
     margin: 0 0 0 auto;
-    background-color: transparent;
+    background-color: white;
     background-image: url(close.svg);
     background-repeat: no-repeat;
     background-size: initial;
     background-position: 0 0;
-    box-shadow: 0px 0px 10px #888888;
+    box-shadow: 0px 0px 10px white;
     transform: none;
     right: 10px;
     top: 10px;
     z-index: 10;
 }
 
-.dill > input:checked ~ label span {
+.item-container > input:checked ~ label span {
     display: none;
 }
 
+.collapsible-container {
+    padding: 0;
+}
+
+.collapsible-container h2 {
+    margin: 0;
+    padding: 0 0 0 10px;
+    color: white;
+    font-family: Rubik,Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
+    font-size: 32px;
+    font-weight: 700;
+    background-color: black;
+}
+
+@media screen and (max-width: 768px) {
+
+    .item-container > div > div {
+        flex-direction: column-reverse;
+    }
+}
+
+/* Text container */
+
+.text-container {
+    width: calc(var(--container-width) - var(--gallery-width));
+    display: inline-block;
+    padding: 0;
+    font-family: arial,sans-serif;
+    font-size: 1.2rem;
+}
+
+.text-container p {
+    padding: 0 10px;
+    font-family: arial,sans-serif;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .text-container {
+        width: 100%;
+        max-width: initial;
+    }
+}
+
+/* Gallery container */
+
 .gallery {
-    width: 500px;
+    width: var(--gallery-width);
+    padding: 10px;
     background-color: var(--gallery-bg-clr-2);
+    display: inline-block;
+    column-count: 2;
+    column-gap: 10px;
+    column-fill: balance;
+    float: left;
+}
+
+.gallery-single {
+    column-count: initial;
+    padding: 20px;
 }
 
 .image-container {
-    width: 200px;
-    margin: 10px;
+    border: 2px solid black;
+    padding: 2px;
     background-color: white;
-    box-shadow: 1px 2px 12px 0 rgb(205, 209, 214);
+    margin-bottom: 0;
 }
 
-.image-container > div {
-    text-align: center;
-    padding: 10px 20px;
-}
-
-.image-container > img {
+.image-container img {
+    border: 2px solid black;
     width: 100%;
+    cursor: pointer;
 }
+
+.image-container p {
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+
+    .gallery {
+        width: 100%;
+        max-width: initial;
+    }
+}
+
+/* Labels */
 
 label.taj {
     background-image: url("gfx_taj.png");
@@ -131,7 +193,21 @@ label.taj {
 
 label.pus {
     background-image: url("gfx_pus.png");
-    background-position: 360px -30px;
+    background-position: 360px -20px;
     background-repeat: no-repeat;
-    background-size: 200px;
+    background-size: 30%;
+}
+
+label.mas {
+    background-image: url("gfx_mas.png");
+    background-position: 360px 0px;
+    background-repeat: no-repeat;
+    background-size: 27%;
+}
+
+label.aks {
+    background-image: url("gfx_aks.png");
+    background-position: 360px 0px;
+    background-repeat: no-repeat;
+    background-size: 27%;
 }
